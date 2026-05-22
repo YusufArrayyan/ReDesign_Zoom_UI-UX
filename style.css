@@ -1192,11 +1192,13 @@ button {
 @media (max-width: 768px) {
     /* Home Screen */
     .home-header {
-        padding: 16px;
+        padding: max(16px, env(safe-area-inset-top)) 16px 16px;
         align-items: center;
+        flex-wrap: nowrap;
     }
     .home-logo {
         font-size: 16px;
+        white-space: nowrap;
     }
     .home-logo .material-symbols-rounded {
         font-size: 24px !important;
@@ -1265,24 +1267,42 @@ button {
     
     /* Meeting Screen */
     .top-bar {
-        padding: 0 16px;
+        padding: max(8px, env(safe-area-inset-top)) 16px 8px;
     }
     .top-left .room-title { display: none; }
     
     .main-content {
         flex-direction: column;
-        padding: 0 8px;
+        padding: 0 16px;
     }
     
+    /* Make video grid a vertical stack of two equal cards */
+    .video-grid-view {
+        flex-direction: column;
+        gap: 16px;
+        justify-content: flex-start;
+    }
     .large-video-container {
         width: 100%;
+        height: 50%;
+        flex: 1;
+        border-radius: var(--radius-large);
+        aspect-ratio: auto; /* Remove 16/9 aspect ratio limit */
     }
     .floating-self {
-        width: 120px;
-        height: 80px;
-        top: 8px;
-        left: 8px;
-        transform: none;
+        position: relative;
+        top: 0; left: 0; transform: none;
+        width: 100%;
+        height: 50%;
+        flex: 1;
+        box-shadow: none;
+        border-radius: var(--radius-large);
+        border: none;
+    }
+    .floating-self img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     .avatar-large {
         width: 120px;
@@ -1309,7 +1329,8 @@ button {
     .bottom-bar {
         overflow-x: auto;
         justify-content: flex-start;
-        padding-bottom: 8px; /* for scrollbar */
+        padding-bottom: max(16px, env(safe-area-inset-bottom));
+        padding-top: 16px;
     }
     .control-group {
         flex-shrink: 0;
