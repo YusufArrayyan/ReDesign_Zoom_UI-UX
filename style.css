@@ -34,13 +34,15 @@ body {
     background-color: var(--bg-main);
     color: var(--text-primary);
     overflow: hidden; /* Prevent scrolling, app-like feel */
-    height: 100vh;
+    height: 100vh; /* Fallback */
+    height: 100dvh;
 }
 
 .app-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100vh; /* Fallback */
+    height: 100dvh;
 }
 
 /* Screen Management */
