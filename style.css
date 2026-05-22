@@ -1189,22 +1189,79 @@ button {
 /* === MOBILE RESPONSIVENESS === */
 @media (max-width: 768px) {
     /* Home Screen */
+    .home-header {
+        padding: 16px 20px;
+    }
+    .home-content {
+        gap: 30px;
+    }
+    .home-user {
+        padding: 4px;
+    }
+    .home-user span {
+        display: none;
+    }
+    .home-clock h1 {
+        font-size: 3.5rem;
+    }
     .home-actions {
         flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        max-width: 320px;
     }
     .action-btn-container {
         width: 100%;
         display: flex;
+        flex-direction: row;
         align-items: center;
         gap: 16px;
         background: #2a2a2a;
-        padding: 12px;
+        padding: 12px 20px;
         border-radius: var(--radius-medium);
         box-sizing: border-box;
     }
+    .action-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 16px;
+    }
+    .action-btn span {
+        font-size: 24px;
+    }
+    #btn-open-tutorial {
+        padding: 8px 12px;
+        font-size: 0; /* hide text on mobile */
+    }
+    #btn-open-tutorial span {
+        font-size: 20px !important;
+    }
     
-    /* Top Bar */
+    /* Meeting Screen */
+    .top-bar {
+        padding: 0 16px;
+    }
     .top-left .room-title { display: none; }
+    
+    .main-content {
+        flex-direction: column;
+        padding: 0 8px;
+    }
+    
+    .large-video-container {
+        width: 100%;
+    }
+    .floating-self {
+        width: 120px;
+        height: 80px;
+        top: 8px;
+        left: 8px;
+        transform: none;
+    }
+    .avatar-large {
+        width: 120px;
+        height: 120px;
+    }
     
     /* Presentation Area */
     .presentation-area {
@@ -1249,6 +1306,9 @@ button {
     .modal-content {
         width: 95%;
         padding: 16px;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
     }
     .tutorial-slide .ts-img {
         height: 150px !important;
