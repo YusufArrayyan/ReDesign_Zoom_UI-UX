@@ -1190,51 +1190,75 @@ button {
 @media (max-width: 768px) {
     /* Home Screen */
     .home-header {
-        padding: 16px 20px;
+        padding: 16px;
+        align-items: center;
+    }
+    .home-logo {
+        font-size: 16px;
+    }
+    .home-logo .material-symbols-rounded {
+        font-size: 24px !important;
     }
     .home-content {
-        gap: 30px;
+        gap: 40px;
     }
     .home-user {
-        padding: 4px;
+        padding: 0;
+        background: transparent;
+    }
+    .home-user img {
+        width: 36px;
+        height: 36px;
     }
     .home-user span {
         display: none;
     }
     .home-clock h1 {
-        font-size: 3.5rem;
+        font-size: 4rem;
     }
     .home-actions {
-        flex-direction: column;
-        gap: 12px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
         width: 100%;
         max-width: 320px;
     }
     .action-btn-container {
         width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
-        gap: 16px;
-        background: #2a2a2a;
-        padding: 12px 20px;
+        justify-content: center;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px 10px;
         border-radius: var(--radius-medium);
         box-sizing: border-box;
     }
+    .action-btn-container > span {
+        font-size: 13px;
+        text-align: center;
+    }
     .action-btn {
-        width: 50px;
-        height: 50px;
-        border-radius: 16px;
+        width: 60px;
+        height: 60px;
+        border-radius: 20px;
     }
     .action-btn span {
-        font-size: 24px;
+        font-size: 28px;
     }
     #btn-open-tutorial {
-        padding: 8px 12px;
-        font-size: 0; /* hide text on mobile */
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    #btn-open-tutorial span {
-        font-size: 20px !important;
+    .tutorial-text {
+        display: none;
+    }
+    #btn-open-tutorial .material-symbols-rounded {
+        font-size: 24px !important;
+        margin: 0;
     }
     
     /* Meeting Screen */
