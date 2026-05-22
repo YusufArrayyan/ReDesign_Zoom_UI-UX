@@ -35,14 +35,14 @@ body {
     color: var(--text-primary);
     overflow: hidden; /* Prevent scrolling, app-like feel */
     height: 100vh; /* Fallback */
-    height: 100dvh;
+    height: 100svh; /* Small viewport height to fix Safari address bar overlap */
 }
 
 .app-container {
     display: flex;
     flex-direction: column;
     height: 100vh; /* Fallback */
-    height: 100dvh;
+    height: 100svh;
 }
 
 /* Screen Management */
@@ -1284,8 +1284,8 @@ button {
     }
     .large-video-container {
         width: 100%;
-        height: 50%;
-        flex: 1;
+        height: calc(50% - 8px); /* Account for 16px gap to prevent overflow */
+        flex: none;
         border-radius: var(--radius-large);
         aspect-ratio: auto; /* Remove 16/9 aspect ratio limit */
     }
@@ -1293,11 +1293,13 @@ button {
         position: relative;
         top: 0; left: 0; transform: none;
         width: 100%;
-        height: 50%;
-        flex: 1;
+        height: calc(50% - 8px); /* Account for 16px gap to prevent overflow */
+        flex: none;
         box-shadow: none;
         border-radius: var(--radius-large);
         border: none;
+        background-color: var(--bg-secondary);
+        overflow: hidden;
     }
     .floating-self img {
         width: 100%;
@@ -1327,16 +1329,26 @@ button {
     
     /* Bottom Bar */
     .bottom-bar {
+        height: auto;
+        min-height: 80px;
         overflow-x: auto;
+        overflow-y: hidden;
         justify-content: flex-start;
         padding-bottom: max(16px, env(safe-area-inset-bottom));
         padding-top: 16px;
+        gap: 8px;
     }
+    .bottom-bar::-webkit-scrollbar { display: none; }
     .control-group {
         flex-shrink: 0;
+        gap: 8px;
     }
     .control-group.center {
         gap: 8px;
+    }
+    .control-btn {
+        width: 44px;
+        height: 44px;
     }
     .bottom-time, .status-item.time, .status-item.connection { display: none; }
     
